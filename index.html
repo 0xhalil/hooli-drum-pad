@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DrumPad</title>
+  </head>
+  <body>
+    <h1>Hooli DrumPad</h1>
+    <div class="table">
+      <div class="row">
+        <div data-key="81" class="padItem">Q</div>
+        <div data-key="87" class="padItem">W</div>
+        <div data-key="69" class="padItem">E</div>
+      </div>
+      <div class="row">
+        <div data-key="65" class="padItem">A</div>
+        <div data-key="83" class="padItem">S</div>
+        <div data-key="68" class="padItem">D</div>
+      </div>
+      <div class="row">
+        <div data-key="90" class="padItem">Z</div>
+        <div data-key="88" class="padItem">X</div>
+        <div data-key="67" class="padItem">C</div>
+      </div>
+    </div>
+
+    <audio data-key="81" src="sounds/choir-2.wav"></audio>
+    <audio data-key="87" src="sounds/electro-1.wav"></audio>
+    <audio data-key="69" src="sounds/electro-2.wav"></audio>
+    <audio data-key="65" src="sounds/piano-1.wav"></audio>
+    <audio data-key="83" src="sounds/piano-2.wav"></audio>
+    <audio data-key="68" src="sounds/piano-3.wav"></audio>
+    <audio data-key="90" src="sounds/piano-4.wav"></audio>
+    <audio data-key="88" src="sounds/piano-5.wav"></audio>
+    <audio data-key="67" src="sounds/piano-6.wav"></audio>
+
+    <script>
+      //Match and play the sound with the pressed key
+      window.addEventListener("keydown", function (e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const padItem = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+        if (!audio) {
+          return;
+        }
+        audio.currentTime = 0;
+        audio.play();
+        padItem.classList.add("pad-item-on");
+      });
+
+      const padPiece = document.querySelectorAll(".padItem");
+
+      //Attach listeners to groups of nodes
+      padPiece.forEach((button) => {
+        button.addEventListener("mousedown", () => {
+          const attribute = button.getAttribute("data-key");
+          const audio = document.querySelector(
+            `audio[data-key="${attribute}"]`
+          );
+          const padItem = document.querySelector(
+            `div[data-key="${attribute}"]`
+          );
+          if (!audio) {
+            return;
+          }
+          audio.currentTime = 0;
+          audio.play();
+          padItem.classList.add("pad-item-on");
+        });
+
+        ////Remove keypress show
+        window.addEventListener("keyup", function (e) {
+          const padItem = document.querySelector(
+            `div[data-key="${e.keyCode}"]`
+          );
+          padItem.classList.remove("pad-item-on");
+        });
+
+        button.addEventListener("mouseup", () => {
+          const attribute = button.getAttribute("data-key");
+          const padItem = document.querySelector(
+            `div[data-key="${attribute}"]`
+          );
+          padItem.classList.remove("pad-item-on");
+        });
+      });
+    </script>
+  </body>
+</html>
