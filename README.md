@@ -1,12 +1,14 @@
 # Hooli DrumPad
 
-## Demo: https://ibrahimakkaya.github.io/hooli-drum-pad/
+
 
 <div align="center">
   <kbd>
     <img src="https://user-images.githubusercontent.com/71381757/155562603-d4273860-38a6-4c63-90c9-6f3e383c791c.png" />
   </kbd>
 </div>
+
+### Demo: https://ibrahimakkaya.github.io/hooli-drum-pad/
 
 ## Description
 
