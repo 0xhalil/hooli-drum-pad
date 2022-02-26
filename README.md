@@ -8,15 +8,11 @@
   </kbd>
 </div>
 
-### Demo: https://ibrahimakkaya.github.io/hooli-drum-pad/
+### Demo: https://ibrahimakkaya.github.io/rock-paper-scissors/
 
 ## Description
 
-As part of The Odin Projects, I developed it for HTML, CSS, JavaScript DOM practice.
-
-### Usage
-
-- Play with keyboard keys(QWE-ASD-ZXC) and mouse button(left button).
+- Rock paper scissors game where you play against the computer.
 
 ### Built with
 
